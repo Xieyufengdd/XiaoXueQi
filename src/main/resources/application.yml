@@ -1,0 +1,14 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=XYNB
+    username: sa
+    password: 241199
+  jpa:
+    hibernate:
+      ddl-auto: update
+mybatis:
+  mapper-locations:
+    classpath:Mapper/*.xml
+  type-aliases-package: com.example.tinymall.Entity

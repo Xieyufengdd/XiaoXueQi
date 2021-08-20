@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tinymall.Dao.FriendDao">
+    <insert id="addToFriendList" parameterType="Friend">
+        insert into [Friend](USR_ID,FRI_ID) values (#{USR_ID},#{FRI_ID})
+    </insert>
+    <select id="existsRelation" resultType="Friend">
+        select * from [Friend] where (USR_ID=#{uid} and FRI_ID=#{fid}) or (USR_ID=#{fid} and FRI_ID=#{uid})
+    </select>
+    <delete id="deleteFriendship" parameterType="Friend">
+        delete from [Friend] where (USR_ID=#{uid} and FRI_ID=#{fid}) or (USR_ID=#{fid} and FRI_ID=#{uid})
+    </delete>
+    <select id="friendList" resultType="Users">
+        select * from [Users] where exists (select * from [Friend] where [Users].UID = [Friend].USR_ID and [Friend].FRI_ID = #{userId})
+        or exists (select * from [Friend] where [Users].UID = [Friend].FRI_ID and [Friend].USR_ID = #{userId})
+    </select>
+</mapper>

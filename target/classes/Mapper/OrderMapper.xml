@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tinymall.Dao.OrderDao">
+    <insert id="startOrder" parameterType="Orders">
+        insert into [Orders](uid,gid,address) values (#{uid},#{gid},#{address})
+    </insert>
+    <select id="findGoods" resultType="Good">
+        select * from [Good] where gid = #{gid}
+    </select>
+    <delete id="cancelOrder" parameterType="Orders">
+        delete from [Orders] where oid = #{oid}
+    </delete>
+    <select id="orderList" resultType="Orders">
+        select * from [Orders] where uid = #{uid}
+    </select>
+    <select id="findGoodsByName" resultType="Good">
+        select * from [Good] where goodsname like #{string}
+    </select>
+    <insert id="addNewGoods" parameterType="Good">
+        insert into [Good](goodsname) values (#{goodsname})
+    </insert>
+    <delete id="deleteGoods" >
+        delete from [Good] where gid = #{gid}
+    </delete>
+</mapper>

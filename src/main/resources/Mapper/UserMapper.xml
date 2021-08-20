@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tinymall.Dao.UserDao">
+    <select id="selectUserByUsername" resultType="Users">
+        select * from [Users] where username=#{username}
+    </select>
+    <insert id="registerNewUser" parameterType="Users">
+        insert into [Users](username,password,email) values(#{username},#{password},#{email})
+    </insert>
+    <select id="checkUserPassword" resultType="Users">
+        select * from [Users] where username=#{username} and password=#{password}
+    </select>
+    <update id="updateUserInformation" parameterType="Users">
+        update [Users] set username=#{username},password=#{password} where UID=#{UID}
+    </update>
+    <select id="selectUserByUserid" resultType="Users">
+        select * from [Users] where UID=#{UID}
+    </select>
+</mapper>

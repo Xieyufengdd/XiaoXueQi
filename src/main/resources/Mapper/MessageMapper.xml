@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tinymall.Dao.MessageDao">
+    <insert id="sendNewMessage" parameterType="Message">
+        insert into [Message](SID,RID,text,type) values(#{SID},#{RID},#{text},#{type})
+    </insert>
+    <select id="selectMessageBySidandFid" resultType="Message">
+        select * from [Message] where (SID=#{uid} and RID=#{fid}) or (RID=#{uid} and SID=#{fid})
+    </select>
+    <delete id="messageDeleteByMid" parameterType="Message">
+        delete from [Message] where MID=#{MID}
+    </delete>
+    <select id="OrderList" resultType="Orders">
+        select * from [Orders] where UID = #{uid}
+    </select>
+</mapper>
