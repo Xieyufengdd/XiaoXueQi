@@ -4,11 +4,14 @@
     <select id="selectUserByUsername" resultType="Users">
         select * from [Users] where username=#{username}
     </select>
+    <select id="selectUserByEmail" resultType="Users">
+        select * from [Users] where email=#{email}
+    </select>
     <insert id="registerNewUser" parameterType="Users">
         insert into [Users](username,password,email) values(#{username},#{password},#{email})
     </insert>
     <select id="checkUserPassword" resultType="Users">
-        select * from [Users] where username=#{username} and password=#{password}
+        select * from [Users] where email=#{email} and password=#{password}
     </select>
     <update id="updateUserInformation" parameterType="Users">
         update [Users] set username=#{username},password=#{password} where UID=#{UID}
