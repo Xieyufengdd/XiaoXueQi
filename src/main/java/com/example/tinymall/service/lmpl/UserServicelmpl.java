@@ -17,13 +17,18 @@ public class UserServicelmpl implements UserService {
     }
 
     @Override
+    public Users selectUserByEmail(String email) {
+        return userDao.selectUserByEmail(email);
+    }
+
+    @Override
     public void registerNewUser(Users user){
         userDao.registerNewUser(user);
     }
 
     @Override
-    public Users checkUserPassword(String username, String password) {
-        return userDao.checkUserPassword(username,password);
+    public Users checkUserPassword(String email, String password) {
+        return userDao.checkUserPassword(email,password);
     }
 
     @Override

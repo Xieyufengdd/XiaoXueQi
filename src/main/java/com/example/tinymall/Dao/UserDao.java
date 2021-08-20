@@ -7,8 +7,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserDao {
     public Users selectUserByUsername(String name);
+    public Users selectUserByEmail(String email);
     public void registerNewUser(Users user);
-    public Users checkUserPassword(String username, String password);
+    public Users checkUserPassword(String email, String password);
     public void updateUserInformation(Users user);
     public Users selectUserByUserid(Integer rid);
 }
