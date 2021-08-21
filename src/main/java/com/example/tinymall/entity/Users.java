@@ -84,12 +84,12 @@ public class Users {
     public String toString() {
         return "Users{" +
                 "UID=" + UID +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", Gender='" + Gender + '\'' +
-                ", Avatar='" + Avatar + '\'' +
-                ", Phone='" + Phone + '\'' +
+                ", username=':" + username + '\'' +
+                ", password=':" + password + '\'' +
+                ", email=':" + email + '\'' +
+                ", Gender=':" + Gender + '\'' +
+                ", Avatar=':" + Avatar + '\'' +
+                ", Phone=':" + Phone + '\'' +
                 '}';
     }
 }
